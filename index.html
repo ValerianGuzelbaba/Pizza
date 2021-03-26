@@ -9,15 +9,15 @@
   <body>
     <div class="page">
       <ul>
-        <li data-prix="8" data-ref="reine" data-id="1">
+        <li data-prix="10" data-ref="reine" data-id="1">
           <span class="gauche"><strong>Mega Fromage</strong> : crème fraîche, roquefort, mozarella, chèvre, munster</span>
           <span class="droite"><span class="prix">10€</span> <span class="moins">-</span> <span class="qt">0</span> <span class="plus">+</span> <span class="totalligne">0</span>€</span>
         </li>
-        <li data-prix="8" data-ref="reineblanche" data-id="2">
+        <li data-prix="9" data-ref="reineblanche" data-id="2">
           <span class="gauche"><strong>Végétarienne</strong> : tomate, champignons, poivrons, oignons, mozza, oeuf</span>
           <span class="droite"><span class="prix">9€</span> <span class="moins">-</span> <span class="qt">0</span> <span class="plus">+</span> <span class="totalligne">0</span>€</span>
         </li>
-        <li data-prix="9" data-ref="napolitaine" data-id="3">
+        <li data-prix="8" data-ref="napolitaine" data-id="3">
           <span class="gauche"><strong>Latina</strong> : tomate, chorizo, oignos, oeuf, mozza</span>
           <span class="droite"><span class="prix">8€</span> <span class="moins">-</span> <span class="qt">0</span> <span class="plus">+</span> <span class="totalligne">0</span>€</span>
         </li>
@@ -25,11 +25,11 @@
           <span class="gauche"><strong>Hawaïenne</strong> : crème, jambon, annas, mozza</span>
           <span class="droite"><span class="prix">10€</span> <span class="moins">-</span> <span class="qt">0</span> <span class="plus">+</span> <span class="totalligne">0</span>€</span>
         </li>
-        <li data-prix="11" data-ref="aubergine" data-id="5">
+        <li data-prix="9" data-ref="aubergine" data-id="5">
           <span class="gauche"><strong>Indiana</strong> : crème, jambon, lardons, tandoori, poivrons, oignons, mozza</span>
           <span class="droite"><span class="prix">9€</span> <span class="moins">-</span> <span class="qt">0</span> <span class="plus">+</span> <span class="totalligne">0</span>€</span>
         </li>
-        <li data-prix="11" data-ref="royale" data-id="6">
+        <li data-prix="10" data-ref="royale" data-id="6">
           <span class="gauche"><strong>3 jambons</strong> : tomate, jambon, lardons, chorizo, mozza</span>
           <span class="droite"><span class="prix">10€</span> <span class="moins">-</span> <span class="qt">0</span> <span class="plus">+</span> <span class="totalligne">0</span>€</span>
         </li>
@@ -41,7 +41,42 @@
       <div class="total">
         <div>
           <p>TOTAL : <span id="total">0</span>€</p>
-          <button>Payer Maintenant</button>
+          <div id="smart-button-container">
+            <div style="text-align: center;">
+              <div id="paypal-button-container"></div>
+            </div>
+          </div>
+        <script src="https://www.paypal.com/sdk/js?client-id=sb&currency=USD" data-sdk-integration-source="button-factory"></script>
+        <script>
+          function initPayPalButton() {
+            paypal.Buttons({
+              style: {
+                shape: 'rect',
+                color: 'gold',
+                layout: 'vertical',
+                label: 'paypal',
+                
+              },
+      
+              createOrder: function(data, actions) {
+                return actions.order.create({
+                  purchase_units: [{"amount":{"currency_code":"USD","value":1}}]
+                });
+              },
+      
+              onApprove: function(data, actions) {
+                return actions.order.capture().then(function(details) {
+                  alert('Transaction completed by ' + details.payer.name.given_name + '!');
+                });
+              },
+      
+              onError: function(err) {
+                console.log(err);
+              }
+            }).render('#paypal-button-container');
+          }
+          initPayPalButton();
+        </script>
         </div>
       </div>
     </div>

@@ -1,80 +1,92 @@
 .page {
-    width: 80%;
-    margin: auto;
-    background-image: url(pizza.jpg);
-    color: white;
-  }
-  
-  ul {
-    list-style-type: none;
-  }
-  
-  li {
-    width: 100%;
-    background-repeat: repeat-x;
-    background-position-y: 40%;
-    display: flex;
-    justify-content: space-between;
-    height: 30px;
-  }
-  
-  .gauche {
-    padding-right: 10px;
-  }
-  
-  .droite {
-    color: black;
-    padding-left: 10px;
+  width: 80%;
+  margin: auto;
+  background-image: url(pizza.jpg);
+  color: white;
+}
+
+ul {
+  padding-top: 30px;
+  list-style-type: none;
+}
+
+li {
+  width: 100%;
+  background-repeat: repeat-x;
+  background-position-y: 40%;
+  display: flex;
+  justify-content: space-between;
+  height: 30px;
+}
+
+.gauche {
+  padding-right: 10px;
+}
+
+.droite:before {
+  content:''; 
+  display: inline-block; 
+  vertical-align: middle; 
+  width: 650px; 
+  height: 1px; 
+  background: black; 
+  margin-right: 10px; 
+}
+
+.droite {
+  padding-right: 15px;
+  color: black;
+  padding-left: 10px;
 }
 
 .prix {
-    padding-right: 10px;
+  padding-right: 10px;
 }
 
 .totalligne {
-    padding-left: 10px;
-    width: 30px;
-    display: inline-block;
-    text-align: right;
+  padding-left: 10px;
+  width: 30px;
+  display: inline-block;
+  text-align: right;
 }
 
 .qt {
-    background-color: lightskyblue;
-    padding: 5px;
-    width: 30px;
-    display: inline-block;
-    text-align: center;
+  background-color: lightskyblue;
+  padding: 5px;
+  width: 30px;
+  display: inline-block;
+  text-align: center;
 }
 
 .plus,
 .moins {
-    font-weight: bold;
-    font-size: large;
-    cursor: pointer;
-    display: inline-block;
-    width: 20px;
-    height: 20px;
-    text-align: center;
-    user-select: none;
+  font-weight: bold;
+  font-size: large;
+  cursor: pointer;
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  text-align: center;
+  user-select: none;
 }
 
 .plus:hover,
 .moins:hover {
-    color: rgb(102, 102, 102);
+  color: rgb(102, 102, 102);
 }
 
 .total {
-    display: flex;
-    color: black;
-    justify-content: flex-end;
-  }
-  
-  #total {
-    width: 30px;
-    display: inline-block;
-    text-align: right;
-  }
-  
-  button {
-    display: none;
-  }
+  display: flex;
+  color: black;
+  justify-content: flex-end;
+}
+
+#total {
+  width: 30px;
+  display: inline-block;
+  text-align: right;
+}
+
+button {
+  display: none;
+}
