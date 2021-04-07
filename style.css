@@ -20,6 +20,7 @@ li {
 }
 
 .gauche {
+  padding-top: 5px;
   padding-right: 10px;
 }
 
@@ -51,7 +52,7 @@ li {
 }
 
 .qt {
-  background-color: lightskyblue;
+  background-color: lightgreen;
   padding: 5px;
   width: 30px;
   display: inline-block;
@@ -72,7 +73,7 @@ li {
 
 .plus:hover,
 .moins:hover {
-  color: rgb(102, 102, 102);
+  color: gray;
 }
 
 .total {
